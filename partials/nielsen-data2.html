@@ -1,0 +1,146 @@
+<div class="container" fade-in>
+    <div style="padding-top: 2em;"> 
+        <div>
+            <div ng-show="nielsenDatas.length > 0">
+               <!-- 
+                <nav class= "navbar navbar-default" role= "navigation" >
+                    <div class= "navbar-header" >
+                        <a class="btn btn-lg btn-info" href="#/edit-nielsen-data/0">
+                        <i class="glyphicon glyphicon-plus"></i>&nbsp;Add new Nielsen Data</a>
+                    </div>
+                </nav>
+                -->
+                
+                <div>
+                    <button type="button" class="btn btn-lg btn-info" ui-sref="nielsen">
+                        Add new Nielsen Data
+                    </button>  
+                    <br/><hr/><br/>
+                </div>
+                
+                
+                <table ng-table="tableParams" class="table table-condensed table-bordered table-striped">
+                <!--<table border="1">-->
+                    <thead>
+                        <th>Media&nbsp;</th>
+                        <th>Type&nbsp;</th>
+                        <th>Target 1&nbsp;</th>
+                        <th>Target 2&nbsp;</th>
+                        <th>Target 3&nbsp;</th>
+                        <th>Target 4&nbsp;</th>
+                        <th>Target 5&nbsp;</th>
+                        <th>Target 6&nbsp;</th>
+                        <th>Target 7&nbsp;</th>
+                        <th>Target 8&nbsp;</th>
+                        <th>Target 9&nbsp;</th>
+                        <th>Target 10&nbsp;</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="data in nielsenDatas">
+                            <td>
+                                <span ng-if="!data.$edit">{{data.Media}}</span>
+                                <div ng-if="data.$edit">
+                                    <input class="form-control" type="text" ng-model="data.Media"/>
+                                </div>                                
+                            </td>
+                            
+                            <td>
+                                <span ng-if="!data.$edit">{{data.Type}}</span>
+                                <div ng-if="data.$edit">
+                                    <input class="form-control" type="text" ng-model="data.Type"/>
+                                </div>                                
+                            </td>
+                            
+                            <td>
+                                <span ng-if="!data.$edit">{{data.Target1}}</span>
+                                <div ng-if="data.$edit">
+                                    <input class="form-control" type="text" ng-model="data.Target1"/>
+                                </div>                                
+                            </td>
+                            
+                            <td>
+                                <span ng-if="!data.$edit">{{data.Target2}}</span>
+                                <div ng-if="data.$edit">
+                                    <input class="form-control" type="text" ng-model="data.Target2"/>
+                                </div>                                
+                            </td>
+                            
+                            <td>
+                                <span ng-if="!data.$edit">{{data.Target2}}</span>
+                                <div ng-if="data.$edit">
+                                    <input class="form-control" type="text" ng-model="data.Target3"/>
+                                </div>                                
+                            </td>
+                            
+                             <td>
+                                <span ng-if="!data.$edit">{{data.Target4}}</span>
+                                <div ng-if="data.$edit">
+                                    <input class="form-control" type="text" ng-model="data.Target4"/>
+                                </div>                                
+                            </td>
+                            
+                            <td>
+                                <span ng-if="!data.$edit">{{data.Target5}}</span>
+                                <div ng-if="data.$edit">
+                                    <input class="form-control" type="text" ng-model="data.Target5"/>
+                                </div>                                
+                            </td>
+                            
+                            <td>
+                                <span ng-if="!data.$edit">{{data.Target6}}</span>
+                                <div ng-if="data.$edit">
+                                    <input class="form-control" type="text" ng-model="data.Target6"/>
+                                </div>                                
+                            </td>
+                            
+                             <td>
+                                <span ng-if="!data.$edit">{{data.Target7}}</span>
+                                <div ng-if="data.$edit">
+                                    <input class="form-control" type="text" ng-model="data.Target7"/>
+                                </div>                                
+                            </td>
+                            
+                             <td>
+                                <span ng-if="!data.$edit">{{data.Target8}}</span>
+                                <div ng-if="data.$edit">
+                                    <input class="form-control" type="text" ng-model="data.Target8"/>
+                                </div>                                
+                            </td>
+                            
+                            <td>
+                                <span ng-if="!data.$edit">{{data.Target9}}</span>
+                                <div ng-if="data.$edit">
+                                    <input class="form-control" type="text" ng-model="data.Target9"/>
+                                </div>                                
+                            </td>
+                            
+                            <td>
+                                <span ng-if="!data.$edit">{{data.Target10}}</span>
+                                <div ng-if="data.$edit">
+                                    <input class="form-control" type="text" ng-model="data.Target10"/>
+                                </div>                                
+                            </td>
+                         
+                            <td>
+                                <button type="button" class="btn btn-success btn-sm" ui-sref="nielsen">
+                                    Edit
+                                </button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger btn-sm" ui-sref="nielsen">
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div ng-show="nielsenDatas.length == 0">
+                <div>
+                    <h4>No Nielsen Data found</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    
+

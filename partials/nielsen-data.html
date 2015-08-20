@@ -1,0 +1,182 @@
+<!--<div class="container" fade-in>
+    <div style="padding-top: 2em;" display:inline-block;float:none; >    -->    
+       
+        <div class="page-header" style="width: 50%;margin: 0 auto;">
+            <h1>Nielsen Data</h1>
+            <h4>&nbsp;&nbsp; This is where we upload the data from Nielsen.</h4>
+            <hr/>
+            <div ng-if="!isNewData">
+                <button type="button" class="btn btn-primary btn-sm" ng:click="addNielsen()">
+                    Add new Nielsen Data
+                </button>
+            </div>            
+            <hr/>
+        </div>        
+        <div ng-show="nielsenDatas.length > 0" class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead style="text-align:center;background-color:#E6E6FA;">
+                    <th style="text-align:center;">MEDIA</th>
+                    <th style="text-align:center;">TYPE</th>
+                    <th style="text-align:center;">TARGET<br/>1</th>
+                    <th style="text-align:center;">TARGET<br/>2</th>
+                    <th style="text-align:center;">TARGET<br/>3</th>
+                    <th style="text-align:center;">TARGET<br/>4</th>
+                    <th style="text-align:center;">TARGET<br/>5</th>
+                    <th style="text-align:center;">TARGET<br/>6</th>
+                    <th style="text-align:center;">TARGET<br/>7</th>
+                    <th style="text-align:center;">TARGET<br/>8</th>
+                    <th style="text-align:center;">TARGET<br/>9</th>
+                    <th style="text-align:center;">TARGET<br/>10</th>
+                    <th colspan="2">&nbsp;</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="dta in newData" ng-if="isNewData">
+                        <td><input class="form-control" type="text" ng-model="dta.Media" required/></td>
+                        <td>
+                            <select name="type" ng-model="dta.Type" class= "form-control" style="width: 100px;" required>
+                                      <option value=""></option>          
+                                      <option value="Media">Media</option>
+                                      <option value="Newspaper">Newspaper</option>
+                                      <option value="Radio">Radio</option>
+                                      <option value="OOH">OOH</option>
+                                      <option value="Magazine">Magazine</option>  
+                                      <option value="Online">Online</option>    
+                            </select> 
+                        </td>
+                        <td><input class="form-control" type="text" ng-model="dta.Target1" style="width: 60px;"/></td>
+                        <td><input class="form-control" type="text" ng-model="dta.Target2" style="width: 60px;"/></td>
+                        <td><input class="form-control" type="text" ng-model="dta.Target3" style="width: 60px;"/></td>
+                        <td><input class="form-control" type="text" ng-model="dta.Target4" style="width: 60px;"/></td>
+                        <td><input class="form-control" type="text" ng-model="dta.Target5" style="width: 60px;"/></td>
+                        <td><input class="form-control" type="text" ng-model="dta.Target6" style="width: 60px;"/></td>
+                        <td><input class="form-control" type="text" ng-model="dta.Target7" style="width: 60px;"/></td>
+                        <td><input class="form-control" type="text" ng-model="dta.Target8" style="width: 60px;"/></td>
+                        <td><input class="form-control" type="text" ng-model="dta.Target9" style="width: 60px;"/></td>
+                        <td><input class="form-control" type="text" ng-model="dta.Target10" style="width: 60px;"/></td>
+                        <td>
+                            <button type="button" class="btn btn-primary btn-sm" ng:click="saveNielsen()">Save</button>                                       </td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-sm" ng:click="resetNielsen()">Cancel</button>        
+                        </td>
+                    </tr>  
+                    
+                    <tr ng-repeat="data in nielsenDatas">
+                        <td>
+                            <span ng-if="!data.showEdit">{{data.Media}}</span>
+                            <div ng-if="data.showEdit">
+                                <input class="form-control" type="text" ng-model="data.Media" required/>
+                            </div>
+                        </td>                            
+                        <td>
+                            <span ng-if="!data.showEdit">{{data.Type}}</span>
+                            <div ng-if="data.showEdit">
+                                 <select name="type" ng-model="data.Type" class= "form-control" style="width: 100px;" required>
+                                  <option value=""></option>          
+                                  <option value="Media">Media</option>
+                                  <option value="Newspaper">Newspaper</option>
+                                  <option value="Radio">Radio</option>
+                                  <option value="OOH">OOH</option>
+                                  <option value="Magazine">Magazine</option>  
+                                  <option value="Online">Online</option>    
+                                </select>                                
+                            </div>
+                        </td>
+                        <td style="text-align:right;">
+                            <span ng-if="!data.showEdit">{{data.Target1}}</span>
+                             <div ng-if="data.showEdit">
+                                <input class="form-control" type="text" ng-model="data.Target1" style="width: 60px;"/>
+                            </div>
+                        </td>
+                       <td style="text-align:right;">
+                            <span ng-if="!data.showEdit">{{data.Target2}}</span>
+                            <div ng-if="data.showEdit">
+                                <input class="form-control" type="text" ng-model="data.Target2" style="width: 60px;"/>
+                            </div>
+                        </td>                        
+                        <td style="text-align:right;">
+                            <span ng-if="!data.showEdit">{{data.Target3}}</span>
+                            <div ng-if="data.showEdit">
+                                <input class="form-control" type="text" ng-model="data.Target3" style="width: 60px;"/>
+                            </div>
+                        </td>
+                        
+                       <td style="text-align:right;">
+                            <span ng-if="!data.showEdit">{{data.Target4}}</span>
+                             <div ng-if="data.showEdit">
+                                <input class="form-control" type="text" ng-model="data.Target4" style="width: 60px;"/>
+                            </div>
+                        </td>
+                       <td style="text-align:right;">
+                            <span ng-if="!data.showEdit">{{data.Target5}}</span>
+                            <div ng-if="data.showEdit">
+                                <input class="form-control" type="text" ng-model="data.Target5" style="width: 60px;"/>
+                            </div>
+                        </td>                        
+                        <td style="text-align:right;">
+                            <span ng-if="!data.showEdit">{{data.Target6}}</span>
+                            <div ng-if="data.showEdit">
+                                <input class="form-control" type="text" ng-model="data.Target6" style="width: 60px;"/>
+                            </div>
+                        </td>
+                        
+                        <td style="text-align:right;">
+                            <span ng-if="!data.showEdit">{{data.Target7}}</span>
+                             <div ng-if="data.showEdit">
+                                <input class="form-control" type="text" ng-model="data.Target7" style="width: 60px;"/>
+                            </div>
+                        </td>
+                       <td style="text-align:right;">
+                            <span ng-if="!data.showEdit">{{data.Target8}}</span>
+                            <div ng-if="data.showEdit">
+                                <input class="form-control" type="text" ng-model="data.Target8" style="width: 60px;"/>
+                            </div>
+                        </td>                        
+                        <td style="text-align:right;">
+                            <span ng-if="!data.showEdit">{{data.Target9}}</span>
+                            <div ng-if="data.showEdit">
+                                <input class="form-control" type="text" ng-model="data.Target9" style="width: 60px;"/>
+                            </div>
+                        </td>
+                        
+                        <td style="text-align:right;">
+                            <span ng-if="!data.showEdit">{{data.Target10}}</span>
+                             <div ng-if="data.showEdit">
+                                <input class="form-control" type="text" ng-model="data.Target10" style="width: 60px;"/>
+                            </div>
+                        </td>
+                       
+                        
+                        <td ng-if="!isNewData">
+                           <div ng-if="data.showEdit">
+                                <button type="button" class="btn btn-primary btn-sm" ng:click="saveNielsen($index)">
+                                    Save
+                                </button>
+                                
+                            </div>
+                            <div ng-if="!data.showEdit">
+                                <button type="button" class="btn btn-info btn-sm" ng:click="editNielsen($index)">
+                                    Edit
+                                </button>
+                            </div> 
+                        </td>
+                        <td ng-if="!isNewData">
+                            <div ng-if="data.showEdit">                               
+                                <button type="button" class="btn btn-warning btn-sm" ng:click="resetNielsen($index)">
+                                    Cancel
+                                </button>
+                            </div>
+                            <div ng-if="!data.showEdit">
+                                <button type="button" class="btn btn-danger btn-sm" ng:click="deleteNielsen($index)">
+                                    Delete
+                                </button>
+                            </div> 
+                        </td>
+                    </tr> 
+                </tbody>
+            </table>
+        </div>
+        <div ng-show="nielsenDatas.length == 0">
+            <div><h4>No Nielsen Data found</h4></div>
+        </div>        
+<!--   </div>
+</div>  -->  

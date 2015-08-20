@@ -1,0 +1,51 @@
+<style type="text/css">
+  .form-horizontal input.ng-invalid.ng-dirty {
+    border-color: #FA787E;
+  }
+
+  .form-horizontal input.ng-valid.ng-dirty {
+    border-color: #78FA89;
+  }
+</style>
+<div class="view">
+    <div class="container">
+        <div class="row">
+        <nav class= "navbar navbar-default" role= "navigation" >
+        <div class= "navbar-header" >
+        <a class= "navbar-brand" href= "../#/target"><i class="glyphicon glyphicon-th-large"></i> Target Datas List </a>
+        <a ng-show="targetData._id" class= "navbar-brand" href= "../#/edit-target-data/0"><i class="glyphicon glyphicon-plus"></i> Create Target Data </a>
+        <a ng-show="targetData._id" class= "navbar-brand pull-right"><i class="glyphicon glyphicon-edit"></i> Currently Editing Target Data Number: {{targetData._id}}</a>
+        </div>
+        </nav>
+        <header>
+            <h3>{{title}}</h3>
+        </header>
+        <div class="col-md-12">
+
+<form role="form" name="myForm" class="form-horizontal">
+<div class="row">
+
+	<div class= "form-group" ng-class="{error: myForm.name.$invalid}">
+		<label class= "col-md-2"> Name </label>
+		<div class="col-md-4">
+		<input name="name" ng-model="targetData.Name" type= "text" class= "form-control" placeholder="Name" required/>
+		<span ng-show="myForm.name.$dirty && myForm.name.$invalid" class="help-inline">Name Required</span>
+		</div>
+	</div>
+	
+	<div class= "form-group">
+		<label class= "col-md-2"></label>
+		<div class="col-md-4">
+		<a href="#/" class="btn">Cancel</a>
+			<button ng-click="saveTargetData(targetData);" 
+					ng-disabled="isClean() || myForm.$invalid"
+					class="btn btn-primary">{{buttonText}}</button>
+			<button ng-click="deleteTargetData(targetData)"
+					ng-show="targetData._id" class="btn btn-warning">Delete</button>
+		</div>
+	</div>
+</div>
+</form>
+        </div></div>
+    </div>
+</div>  

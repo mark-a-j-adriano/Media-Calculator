@@ -1,0 +1,133 @@
+<style type="text/css">
+  .form-horizontal input.ng-invalid.ng-dirty {
+    border-color: #FA787E;
+  }
+
+  .form-horizontal input.ng-valid.ng-dirty {
+    border-color: #78FA89;
+  }
+</style>
+<div class="view">
+    <div class="container">
+        <div class="row">
+        <nav class= "navbar navbar-default" role= "navigation" >
+        <div class= "navbar-header" >
+        <a class= "navbar-brand" href= "#/nielsen-data"><i class="glyphicon glyphicon-th-large"></i> Nielsen Datas List </a>
+        <a ng-show="nielsenData._id" class= "navbar-brand" href= "#/edit-nielsen-data/0"><i class="glyphicon glyphicon-plus"></i> Create Nielsen Data </a>
+        <a ng-show="nielsenData._id" class= "navbar-brand pull-right"><i class="glyphicon glyphicon-edit"></i> Currently Editing Nielsen Data Number: {{nielsenData._id}}</a>
+        </div>
+        </nav>
+        <header>
+            <h3>{{title}}</h3>
+        </header>
+        <div class="col-md-12">
+
+<form role="form" name="myForm" class="form-horizontal">
+<div class="row">
+
+	<div class= "form-group" ng-class="{error: myForm.media.$invalid}">
+		<label class= "col-md-2"> Name </label>
+		<div class="col-md-4">
+		<input name="media" ng-model="nielsenData.Media" type= "text" class= "form-control" placeholder="Media" required/>
+		<span ng-show="myForm.media.$dirty && myForm.media.$invalid" class="help-inline">Media Required</span>
+		</div>
+	</div>
+
+	<div class= "form-group" ng-class="{error: myForm.type.$invalid}">
+		<label class= "col-md-2"> Type </label>
+		<div class="col-md-4">
+        <select name="type" ng-model="nielsenData.Type" class= "form-control" required>
+          <option value=""></option>          
+          <option value="Media">Media</option>
+          <option value="Newspaper">Newspaper</option>
+          <option value="Radio">Radio</option>
+          <option value="OOH">OOH</option>
+          <option value="Magazine">Magazine</option>  
+          <option value="Online">Online</option>    
+        </select>                
+		<!--<input name="type" ng-model="nielsenData.Type" type= "text" class= "form-control" placeholder="Type" required/>-->
+		<span ng-show="myForm.type.$dirty && myForm.type.$invalid" class="help-inline">Type Required</span>
+		</div>
+	</div>
+
+	<div class= "form-group">
+		<label class= "col-md-2">Target 1</label>
+		<div class="col-md-4">
+		<input ng-model="nielsenData.Target1" type= "text" class= "form-control" placeholder= "Target 1"/>
+		</div>
+	</div>
+	<div class= "form-group">
+		<label class= "col-md-2">Target 2</label>
+		<div class="col-md-4">
+		<input ng-model="nielsenData.Target2" type= "text" class= "form-control" placeholder= "Target 2"/>
+		</div>
+	</div>
+	<div class= "form-group">
+		<label class= "col-md-2">Target 3</label>
+		<div class="col-md-4">
+		<input ng-model="nielsenData.Target3" type= "text" class= "form-control" placeholder= "Target 3"/>
+		</div>
+	</div>
+	<div class= "form-group">
+		<label class= "col-md-2">Target 4</label>
+		<div class="col-md-4">
+		<input ng-model="nielsenData.Target4" type= "text" class= "form-control" placeholder= "Target 4"/>
+		</div>
+	</div>
+	<div class= "form-group">
+		<label class= "col-md-2">Target 5</label>
+		<div class="col-md-4">
+		<input ng-model="nielsenData.Target5" type= "text" class= "form-control" placeholder= "Target 5"/>
+		</div>
+	</div>
+	<div class= "form-group">
+		<label class= "col-md-2">Target 6</label>
+		<div class="col-md-4">
+		<input ng-model="nielsenData.Target6" type= "text" class= "form-control" placeholder= "Target 6"/>
+		</div>
+	</div>
+	<div class= "form-group">
+		<label class= "col-md-2">Target 7</label>
+		<div class="col-md-4">
+		<input ng-model="nielsenData.Target7" type= "text" class= "form-control" placeholder= "Target 7"/>
+		</div>
+	</div>
+	
+	<div class= "form-group">
+		<label class= "col-md-2">Target 8</label>
+		<div class="col-md-4">
+		<input ng-model="nielsenData.Target8" type= "text" class= "form-control" placeholder= "Target 8"/>
+		</div>
+	</div>
+	
+	<div class= "form-group">
+		<label class= "col-md-2">Target 9</label>
+		<div class="col-md-4">
+		<input ng-model="nielsenData.Target9" type= "text" class= "form-control" placeholder= "Target 9"/>
+		</div>
+	</div>
+	
+	<div class= "form-group">
+		<label class= "col-md-2">Target 10</label>
+		<div class="col-md-4">
+		<input ng-model="nielsenData.Target10" type= "text" class= "form-control" placeholder= "Target 10"/>
+		</div>
+	</div>
+	
+	
+	<div class= "form-group">
+		<label class= "col-md-2"></label>
+		<div class="col-md-4">
+		<a href="#/" class="btn">Cancel</a>
+			<button ng-click="saveNielsenData(nielsenData);" 
+					ng-disabled="isClean() || myForm.$invalid"
+					class="btn btn-primary">{{buttonText}}</button>
+			<button ng-click="deleteNielsenData(nielsenData)"
+					ng-show="nielsenData._id" class="btn btn-warning">Delete</button>
+		</div>
+	</div>
+</div>
+</form>
+        </div></div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="container" fade-in>
+    <div style="padding-top: 2em;"> 
+        <div class="page-header">
+            <h1>Target Data</h1>
+            <h4>&nbsp;&nbsp; This is where we upload the names for the Target Audience.</h4>
+            <hr/>
+        </div> 
+        <div ng-show="targetDatas.length > 0">
+            <table class="table table-striped table-bordered">
+                <thead style="text-align:center;background-color:#E6E6FA;">
+                    <th style="text-align:center;">NUMBER</th>
+                    <th style="text-align:center;">NAME</th>
+                    <th>&nbsp;</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="data in targetDatas">
+                        <td>Target #&nbsp;{{data.ID}}</td>
+                        <td>                            
+                            <span ng-if="!data.showEdit">{{data.Name}}</span>
+                            <div ng-if="data.showEdit">
+                                <input class="form-control" type="text" ng-model="data.Name" />
+                            </div>
+                        </td>
+                        <td>
+                            <div ng-if="data.showEdit">
+                                <button type="button" class="btn btn-primary btn-sm" ng:click="saveTarget($index)">
+                                    Save
+                                </button>
+                                <button type="button" class="btn btn-default btn-sm" ng:click="resetTarget($index)">
+                                    Cancel
+                                </button>
+                            </div>    
+                            <div ng-if="!data.showEdit">
+                                <button type="button" class="btn btn-info btn-sm" ng:click="editTarget($index)">
+                                    Edit
+                                </button>
+                            </div>    
+                        </td>
+                    </tr>
+                </tbody>
+		    </table>    
+        </div>
+        <div ng-show="targetDatas.length == 0">
+            <div><h4>No Target Data found</h4></div>
+        </div>
+    </div>
+</div>
